@@ -23,12 +23,16 @@ function setup (queryWordsText, wordsText) {
   console.log(answer)
   const words = []
   const chars = document.getElementsByClassName('char')
-  const notvalidwordAlert = document.querySelector('.not-valid-word')
+  const [alert] = document.getElementsByClassName('alert')
   let word = ''
   let char, index
 
+  let lastCell = chars[chars.length - 1]
+  
+  let gameFinished = false
+
   function game (key) {
-    if (!key.isEnglishWord()) return
+    if (!key.isEnglishWord() || gameFinished) return
     index = words.length * 5 + word.length
     if (key === 'Backspace' && word) {
       chars[index - 1].innerText = ''
@@ -59,11 +63,33 @@ function setup (queryWordsText, wordsText) {
             })
           }
         })
+        let match = word === answer
         words.push(word)
         word = ''
+        let cell = chars[(words.length - 1) * 5 + 4]
+        gameFinished = match
+        cell.addEventListener('animationend', () => {
+          if (cell === lastCell && !match) {
+            // restartButton.classList.add('show')
+            alert.innerText = answer
+            alert.classList.add('loose')
+          }
+          if (match) {
+            // alert.innerText = 'Congratulations!'
+            // alert.classList.add('win')
+            gameFinished = true
+          }
+        })
+
       } else {
-        notvalidwordAlert.classList.add('vibrate')
-        notvalidwordAlert.addEventListener('animationend', () => { notvalidwordAlert.classList.remove('vibrate') })
+        alert.innerText = 'Not valid'
+        alert.classList.add('not-valid')
+        alert.addEventListener('animationend', () => { 
+          const [animation] = alert.getAnimations()
+          if (!animation) {
+            alert.classList.remove('not-valid')
+          }
+        })
       }
     } else if (word.length !== 5 && key.length === 1) {
       char = chars[index]
@@ -76,18 +102,14 @@ function setup (queryWordsText, wordsText) {
   Array.from(keys).forEach(key => key.addEventListener('click', () => game(key.getAttribute('value'))))
   document.addEventListener('keydown', ({ key }) => game(key))
 
-  let interval
-  document.querySelector('[value=Enter]').addEventListener('touchstart', ({ target }) => {
-    console.log('basti')
+  let interval, enter
+  enter = document.querySelector('[value=Enter]')
+  enter.addEventListener('touchstart', ({ target }) => {
     interval = setTimeout(() => {
       alert(answer)
     } , 2000)
   })
-
-  document.querySelector('[value=Enter]').addEventListener('touchend', ({ target }) => {
-    console.log('kalktı')
-    clearInterval(interval)
-  })
+  enter.addEventListener('touchend', () => clearInterval(interval))
 }
 
 readTextFile('./words.txt', wordsText => {
