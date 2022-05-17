@@ -23,7 +23,7 @@ function setup (queryWordsText, wordsText) {
   console.log(answer)
   const words = []
   const chars = document.getElementsByClassName('char')
-  const [alert] = document.getElementsByClassName('alert')
+  const [alertTag] = document.getElementsByClassName('alert')
   let word = ''
   let char, index
 
@@ -71,23 +71,23 @@ function setup (queryWordsText, wordsText) {
         cell.addEventListener('animationend', () => {
           if (cell === lastCell && !match) {
             // restartButton.classList.add('show')
-            alert.innerText = answer
-            alert.classList.add('loose')
+            alertTag.innerText = answer
+            alertTag.classList.add('loose')
           }
           if (match) {
-            // alert.innerText = 'Congratulations!'
-            // alert.classList.add('win')
+            alertTag.innerText = 'Congratulations!'
+            alertTag.classList.add('win')
             gameFinished = true
           }
         })
 
       } else {
-        alert.innerText = 'Not valid'
-        alert.classList.add('not-valid')
-        alert.addEventListener('animationend', () => { 
-          const [animation] = alert.getAnimations()
+        alertTag.innerText = 'Not valid'
+        alertTag.classList.add('not-valid')
+        alertTag.addEventListener('animationend', () => { 
+          const [animation] = alertTag.getAnimations()
           if (!animation) {
-            alert.classList.remove('not-valid')
+            alertTag.classList.remove('not-valid')
           }
         })
       }
