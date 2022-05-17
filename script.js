@@ -77,15 +77,14 @@ function setup (queryWordsText, wordsText) {
   document.addEventListener('keydown', ({ key }) => game(key))
 
   let interval
-  console.log(document.querySelector('[value=Enter]'))
-  document.querySelector('[value=Enter]').addEventListener('mousedown', ({ target }) => {
+  document.querySelector('[value=Enter]').addEventListener('touchstart', ({ target }) => {
     console.log('basti')
     interval = setTimeout(() => {
       alert(answer)
     } , 2000)
   })
 
-  document.querySelector('[value=Enter]').addEventListener('mouseup', ({ target }) => {
+  document.querySelector('[value=Enter]').addEventListener('touchend', ({ target }) => {
     console.log('kalktı')
     clearInterval(interval)
   })

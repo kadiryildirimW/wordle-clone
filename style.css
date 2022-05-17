@@ -201,6 +201,13 @@ main {
   aspect-ratio: 3 / 1;
 }
 
+@media (orientation: portrait) {
+  .keyboard {
+    height: 27%;
+  }
+}
+/* @media only screen and (max-height: 427px) { */
+
 .keyboard-row {
   display: flex;
   justify-content: center;
@@ -248,7 +255,7 @@ main {
   width: calc(100% / 11 + 1rem);
 }
 
-.key:hover {
+.key:active {
   opacity: 0.5;
 }
 
