@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wordle-Clone</title>
+  <link rel="stylesheet" href="reset.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <div class="char-table">
+      <div class="char-container">
+        <div class="char"></div>
+      </div>
+      <div class="char-container">
+        <div class="char"></div>
+      </div>
+      <div class="char-container">
+        <div class="char"></div>
+      </div>
+      <div class="char-container">
+        <div class="char"></div>
+      </div>
+      <div class="char-container">
+        <div class="char"></div>
+      </div>
+
+      <div class="char-container">
+        <div class="char"></div>
+      </div>
+      <div class="char-container">
+        <div class="char"></div>
+      </div>
+      <div class="char-container">
+        <div class="char"></div>
+      </div>
+      <div class="char-container">
+        <div class="char"></div>
+      </div>
+      <div class="char-container">
+        <div class="char"></div>
+      </div>
+
+      <div class="char-container">
+        <div class="char"></div>
+      </div>
+      <div class="char-container">
+        <div class="char"></div>
+      </div>
+      <div class="char-container">
+        <div class="char"></div>
+      </div>
+      <div class="char-container">
+        <div class="char"></div>
+      </div>
+      <div class="char-container">
+        <div class="char"></div>
+      </div>
+
+      <div class="char-container">
+        <div class="char"></div>
+      </div>
+      <div class="char-container">
+        <div class="char"></div>
+      </div>
+      <div class="char-container">
+        <div class="char"></div>
+      </div>
+      <div class="char-container">
+        <div class="char"></div>
+      </div>
+      <div class="char-container">
+        <div class="char"></div>
+      </div>
+
+      <div class="char-container">
+        <div class="char"></div>
+      </div>
+      <div class="char-container">
+        <div class="char"></div>
+      </div>
+      <div class="char-container">
+        <div class="char"></div>
+      </div>
+      <div class="char-container">
+        <div class="char"></div>
+      </div>
+      <div class="char-container">
+        <div class="char"></div>
+      </div>
+
+      <div class="char-container">
+        <div class="char"></div>
+      </div>
+      <div class="char-container">
+        <div class="char"></div>
+      </div>
+      <div class="char-container">
+        <div class="char"></div>
+      </div>
+      <div class="char-container">
+        <div class="char"></div>
+      </div>
+      <div class="char-container">
+        <div class="char"></div>
+      </div>
+    </div>
+    <div class="panel">
+      <div class="alert not-valid-word">Word is not valid</div>
+      <div class="alert">Word is not valid</div>
+    </div>
+    <div class="keyboard">
+      <div class="keyboard-row">
+        <div class="key" value="q">Q</div>
+        <div class="key" value="w">W</div>
+        <div class="key" value="e">E</div>
+        <div class="key" value="r">R</div>
+        <div class="key" value="t">T</div>
+        <div class="key" value="y">Y</div>
+        <div class="key" value="u">U</div>
+        <div class="key" value="ı">I</div>
+        <div class="key" value="o">O</div>
+        <div class="key" value="p">P</div>
+      </div>
+      <div class="keyboard-row">
+        <div class="key" value="a">A</div>
+        <div class="key" value="s">S</div>
+        <div class="key" value="d">D</div>
+        <div class="key" value="f">F</div>
+        <div class="key" value="g">G</div>
+        <div class="key" value="h">H</div>
+        <div class="key" value="j">J</div>
+        <div class="key" value="k">K</div>
+        <div class="key" value="l">L</div>
+      </div>
+      <div class="keyboard-row">
+        <div class="key enter" value="Enter">Enter</div>
+        <div class="key" value="z">Z</div>
+        <div class="key" value="x">X</div>
+        <div class="key" value="c">C</div>
+        <div class="key" value="v">V</div>
+        <div class="key" value="b">B</div>
+        <div class="key" value="n">N</div>
+        <div class="key" value="m">M</div>
+        <div class="key backspace" value="Backspace">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-backspace" viewBox="0 0 16 16">
+            <path d="M5.83 5.146a.5.5 0 0 0 0 .708L7.975 8l-2.147 2.146a.5.5 0 0 0 .707.708l2.147-2.147 2.146 2.147a.5.5 0 0 0 .707-.708L9.39 8l2.146-2.146a.5.5 0 0 0-.707-.708L8.683 7.293 6.536 5.146a.5.5 0 0 0-.707 0z"/>
+            <path d="M13.683 1a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-7.08a2 2 0 0 1-1.519-.698L.241 8.65a1 1 0 0 1 0-1.302L5.084 1.7A2 2 0 0 1 6.603 1h7.08zm-7.08 1a1 1 0 0 0-.76.35L1 8l4.844 5.65a1 1 0 0 0 .759.35h7.08a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1h-7.08z"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
