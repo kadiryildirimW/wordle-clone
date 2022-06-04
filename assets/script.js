@@ -33,11 +33,12 @@ function setup (queryWordsText, wordsText) {
 
   function game (key) {
     if (!key.isEnglishWord() || gameFinished) return
+    key = key.toLowerCase()
     index = words.length * 5 + word.length
-    if (key === 'Backspace' && word) {
+    if (key === 'backspace' && word) {
       chars[index - 1].innerText = ''
       word = word.slice(0, word.length - 1)
-    } else if (key === 'Enter' && word.length === 5) {
+    } else if (key === 'enter' && word.length === 5) {
       if (wordsText.indexOf(word) !== -1) {
         answer.split('').forEach((letter, i) => {
           index = words.length * 5 + i
@@ -70,7 +71,6 @@ function setup (queryWordsText, wordsText) {
         gameFinished = match
         cell.addEventListener('animationend', () => {
           if (cell === lastCell && !match) {
-            // restartButton.classList.add('show')
             alertTag.innerText = answer
             alertTag.classList.add('loose')
           }
@@ -112,8 +112,8 @@ function setup (queryWordsText, wordsText) {
   enter.addEventListener('touchend', () => clearInterval(interval))
 }
 
-readTextFile('./words.txt', wordsText => {
-  readTextFile('./query-words.txt', queryWordsText => {
+readTextFile('./assets/words.txt', wordsText => {
+  readTextFile('./assets/query-words.txt', queryWordsText => {
     if (!queryWordsText || !wordsText) {
       throw new Error('Word list not fetched')
     }
